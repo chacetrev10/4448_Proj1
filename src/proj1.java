@@ -1,7 +1,11 @@
+import java.util.Scanner;
+
 public class proj1 {
 
     public static void main(String[] args){
-
+        System.out.println("Please enter the number of days you want to simulate at the zoo");
+        Scanner input = new Scanner(System.in);
+        int numOfDays = input.nextInt();
     }
 }
 
