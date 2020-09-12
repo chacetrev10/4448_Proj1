@@ -55,3 +55,86 @@ class Zookeeper extends ZooEmployee {
 		System.out.println("Zookeeper leaves zoo on day " + day);
 	}
 }
+
+class Animal{
+	
+	private String name;
+	Animal(String name){
+		this.name= name;
+	}
+	
+	void wakeUp() {
+		System.out.println(name + " wakes up");
+	}
+	void makeNoise() {
+		System.out.println(name + " makes noise");
+	}
+	
+	void eat() {
+		System.out.println(name + " eats");
+	}
+	
+	void roam() {
+		System.out.println(name + " roams");
+	}
+	
+	void sleep() {
+		System.out.println(name + " goes to sleep");
+	}
+}
+
+class Pachyderm{
+	
+}
+
+class Feline{
+	
+}
+
+class Canine{
+	
+}
+
+class Bovidae{
+	
+}
+
+class Hippo{
+
+}
+
+class Elephant{
+	
+}
+
+class Rhino{
+	
+}
+
+class Tiger{
+	
+}
+
+class Lion{
+	
+}
+
+class Cat{
+	
+}
+
+class Dog{
+	
+}
+
+class Wolf{
+	
+}
+
+class Bison{
+	
+}
+
+class Goat{
+	
+}
