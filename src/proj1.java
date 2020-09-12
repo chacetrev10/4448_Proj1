@@ -6,6 +6,16 @@ public class proj1 {
 		System.out.println("Please enter the number of days you want to simulate at the zoo");
 		Scanner input = new Scanner(System.in);
 		int numOfDays = input.nextInt();
+		Animal[] arr = new Animal[3];
+		Rhino r = new Rhino("Rhino");
+		Bison b = new Bison("Bison");
+		Tiger t = new Tiger("Tiger");
+		arr[0] = r;
+		arr[1] = b;
+		arr[2] = t;
+		for(Animal x: arr) {
+			x.eat();
+		}
 	}
 }
 
@@ -58,10 +68,7 @@ class Zookeeper extends ZooEmployee {
 
 class Animal{
 	
-	private String name;
-	Animal(String name){
-		this.name= name;
-	}
+	protected String name;
 	
 	void wakeUp() {
 		System.out.println(name + " wakes up");
@@ -81,60 +88,82 @@ class Animal{
 	void sleep() {
 		System.out.println(name + " goes to sleep");
 	}
+
 }
 
-class Pachyderm{
+class Pachyderm extends Animal{
+
 	
 }
 
-class Feline{
+class Feline extends Animal{
 	
 }
 
-class Canine{
+class Canine extends Animal{
 	
 }
 
-class Bovidae{
+class Bovidae extends Animal{
 	
 }
 
-class Hippo{
-
+class Hippo extends Pachyderm{
+	Hippo(String name){
+		super.name = name;
+	}
 }
 
-class Elephant{
-	
+class Elephant extends Pachyderm{
+	Elephant(String name){
+		super.name = name;
+	}
 }
 
-class Rhino{
-	
+class Rhino extends Pachyderm{
+	Rhino(String name){
+		super.name = name;
+	}
 }
 
-class Tiger{
-	
+class Tiger extends Feline{
+	Tiger(String name){
+		super.name = name;
+	}
 }
 
-class Lion{
-	
+class Lion extends Feline{
+	Lion(String name){
+		super.name = name;
+	}
 }
 
-class Cat{
-	
+class Cat extends Feline{
+	Cat(String name){
+		super.name = name;
+	}
 }
 
-class Dog{
-	
+class Dog extends Canine{
+	Dog(String name){
+		super.name = name;
+	}
 }
 
-class Wolf{
-	
+class Wolf extends Canine{
+	Wolf(String name){
+		super.name = name;
+	}
 }
 
-class Bison{
-	
+class Bison extends Bovidae{
+	Bison(String name){
+		super.name = name;
+	}
 }
 
-class Goat{
-	
+class Goat extends Bovidae{
+	Goat(String name){
+		super.name = name;
+	}
 }
