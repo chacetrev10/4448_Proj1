@@ -1,59 +1,53 @@
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.lang.Math;
 
 public class proj1 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		System.out.println("Please enter the number of days you want to simulate at the zoo");
 		Scanner input = new Scanner(System.in);
 		int numOfDays = input.nextInt();
 		
 		Zookeeper keeper = new Zookeeper();
+		Animal[] zoo = new Animal[20];
 		
-		Animal[] arr = new Animal[18];
 		
-		Hippo h1 = new Hippo("Hippo 1");
-		Hippo h2 = new Hippo("Hippo 2");
-		Elephant e1 = new Elephant("Elephant 1");
-		Elephant e2 = new Elephant("Elephant 2");
-		Rhino r1 = new Rhino("Rhino 1");
-		Rhino r2 = new Rhino("Rhino 2");
-		Tiger t1 = new Tiger("Tiger 1");
-		Tiger t2 = new Tiger("Tiger 2");
-		Lion l1 = new Lion("Lion 1");
-		Lion l2 = new Lion("Lion 2");
-		Cat c1 = new Cat("Cat 1");
-		Cat c2 = new Cat("Cat 2");
-		Dog d1 = new Dog("Dog 1");
-		Dog d2 = new Dog("Dog 2");
-		Wolf w1 = new Wolf("Wolf 1");
-		Wolf w2 = new Wolf("Wolf 2");
-		Bison b1 = new Bison("Bison 1");
-		Bison b2 = new Bison("Bison 2");
+		zoo[0] = new Hippo("Harry the Hippo");
+		zoo[1] = new Hippo("Hector the Hippo");
+		zoo[2] = new Elephant("Eugene the Elephant");
+		zoo[3] = new Elephant("Eric the Elephant");
+		zoo[4] = new Rhino("Rory the Rhino");
+		zoo[5] = new Rhino("Randy the Rhino");
+		zoo[6] = new Tiger("Titus the Tiger");
+		zoo[7] = new Tiger("Terry the Tiger");
+		zoo[8] = new Lion("Larry the Lion");
+		zoo[9] = new Lion("Lenny the Lion");
+		zoo[10] = new Cat("Candy the Cat");
+		zoo[11] = new Cat("Carol the Cat");
+		zoo[12] = new Dog("Donovan the Dog");
+		zoo[13] = new Dog("Dax the Dog");
+		zoo[14] = new Wolf("Wyatt the Wolf");
+		zoo[15] = new Wolf("Willy the Wolf");
+		zoo[16] = new Bison("Billy the Bison");
+		zoo[17] = new Bison("Brandon the Bison");
+		zoo[18] = new Goat("Gary the Goat");
+		zoo[19] = new Goat("Grayson the Goat");
 		
-		arr[0] = h1;
-		arr[1] = h2;
-		arr[2] = e1;
-		arr[3] = e2;
-		arr[4] = r1;
-		arr[5] = r2;
-		arr[6] = t1;
-		arr[7] = t2;
-		arr[8] = l1;
-		arr[9] = l2;
-		arr[10] = c1;
-		arr[11] = c2;
-		arr[12] = d1;
-		arr[13] = d2;
-		arr[14] = w1;
-		arr[15] = w2;
-		arr[16] = b1;
-		arr[17] = b2;
 		
+		
+//	Uncomment this is you want the output printed to a file
+//	Referenced https://stackoverflow.com/questions/1994255/how-to-write-console-output-to-a-txt-file
+//		PrintStream out = new PrintStream(new FileOutputStream("dayatthezoo.out"));
+//		System.setOut(out);
+		
+	
 		for(int day = 0; day < numOfDays; day++) {
 			String strDay = String.valueOf(day+1); 
 			keeper.goToWork(strDay);
-			for(Animal x: arr) {
+			for(Animal x: zoo) {
 				keeper.wakeUpAnimal(x.name);
 				x.wakeUp();
 				keeper.countAnimal(x.name);
