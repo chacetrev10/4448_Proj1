@@ -14,7 +14,9 @@ public class proj1 {
 		Zookeeper keeper = new Zookeeper();
 		Animal[] zoo = new Animal[20];
 		
-		
+		//Identity: These objects are all created and have a unique location in the 
+		//zoo array and also have a unique name, giving them a unique identity and
+		//spot in memory.
 		zoo[0] = new Hippo("Harry the Hippo");
 		zoo[1] = new Hippo("Hector the Hippo");
 		zoo[2] = new Elephant("Eugene the Elephant");
@@ -47,6 +49,8 @@ public class proj1 {
 		for(int day = 0; day < numOfDays; day++) {
 			String strDay = String.valueOf(day+1); 
 			keeper.goToWork(strDay);
+			//Polymorphism: although all of these objects in the zoo are different species
+			//they are all still animals, so can call the same methods. 
 			for(Animal x: zoo) {
 				keeper.wakeUpAnimal(x.name);
 				x.wakeUp();
@@ -65,9 +69,13 @@ public class proj1 {
 	}
 }
 
-//Zoo employee class that contains methods that all zoo employees do
+//Zoo employee class that contains methods that all zoo employees do.
+//Abstract Class: we never instantiate ZooEmployee, but rather create a subclass
+//that will inherit from ZooEmployee.
 abstract class ZooEmployee {
 
+	//Abstraction: we create this method but provide no functionality so future
+	//subclasses can create the functionality. 
 	abstract void goToWork(String day);
 
 	abstract void wakeUpAnimal(String name);
@@ -114,6 +122,8 @@ class Zookeeper extends ZooEmployee {
 
 class Animal{
 	
+	//Encapsulation: using a protected member variable instead of a public one.
+	//This allows us to use the 'name' variable in subclasses of Animal.
 	protected String name;
 	
 	void wakeUp() {
@@ -140,6 +150,8 @@ class Animal{
 class Pachyderm extends Animal{
 	@Override
 	void roam() {
+		//Used this website as a reference to generate random numbers.
+		//https://www.javatpoint.com/how-to-generate-random-number-in-java
 		double charge_chance = Math.random();
 		if (charge_chance <= 0.25) {
 			System.out.println(name + " charges");
